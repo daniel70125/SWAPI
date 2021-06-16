@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+        body {
+            margin: 0;
+            font-family: 'Atma', cursive;
+            background-color: darkslategrey;
+        }
+        #header {
+            text-align: center;
+            background-color: black;
+            color:dodgerblue;
+            padding:10px 0;
+        }
+        #header > h2 {
+            margin: 0 0 20px 0;
+            font-family: 'Chewy', cursive;
+            text-shadow: -5px 5px 3px steelblue;
+            text-decoration: underline;
+            transition: all 2s;
+        }
+        #header > h2:hover{
+            transform: scale(2);
+        }
+        #header > button {
+            border-radius:10px;
+            padding: 5px;
+            background: dimgray;
+            color: orange;
+        }
+        #main {
+            text-align: center;
+            margin-bottom: 15px;
+            min-height: 90vh;
+        }
+        #image, #info-box {
+            text-align: center;
+        }
+        ul {
+            display: flex;
+            list-style-type: none;
+            justify-content: space-around;
+        }
+        ul li {
+            cursor:pointer;
+            font-size: 20px;
+        }
+        ul li:hover {
+            text-decoration: underline;
+        }
+        #image {
+            width:50%;
+            margin: auto;
+            min-height:70vh;
+            max-height:70vh;
+        }
+        #character-image {
+            width: 100%;
+            background-size: cover;
+            min-height:70vh;
+            max-height:70vh;
+            box-shadow: 0px 5px 10px 5px grey;
+        }
+        footer {
+            background-color: black;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+        button {
+            font-size: 15px;
+            margin:10px 0px 15px 0px;;
+            padding: 7px;
+            border: none;
+            border-radius: 18px;
+            background-color: mediumslateblue;
+            cursor: pointer;
+            transform: scale(1);
+            transition: all 1s;
+        }
+        /* @keyframes btn {
+            from
+        } */
+        button:hover {
+            cursor: pointer;
+            transform: scale(1.1);
+            transition: all 1s;
+        }
+        button:focus {
+            cursor: pointer;
+            transform: scale(1.1);
+            transition: all 1s;
+        }
+        #info-box {
+            background-color: mediumslateblue;
+            padding: 10px;
+            margin: 0 auto 15px auto;
+            border-radius: 10px;
+            width: 75%;
+        }
+        #info-box > h5 {
+            margin:5px 0;
+        }
+        .info {
+            text-decoration: underline;
+            font-weight: bold;
+        }
+        @media only screen and (max-width: 600px) {
+            #image {
+                width:100%
+            }
+            #info-box {
+                width:100%;
+                padding:0;
+                border-radius: 0;
+                background-color: transparent;
+            }
+          }
