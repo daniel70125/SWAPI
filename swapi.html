@@ -3,30 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Swapi API</title>
+    <title>POKE API</title>
     <link rel="stylesheet" href="swapi.css" />
+    <!-- Typewriter JS -->
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 </head>
 <body>
     <div id="header">
-        <h2>SWAPI API !</h2>
+        <h2>POKEMON API !</h2>
     </div>
-    <div id='main'>
-        <div id='image'>
-            <img id='character-image' />
+    <div id='main-container'>
+        <div id="about-section">
+            <!-- Img container -->
+            <div id="img-container">
+                <img src="./avatar-img.png" alt="Image of character" />
+            </div>
+            <!-- About informtion -->
+            <div>
+                <p id="main-container-full-name">First Last</p>
+            </div>
         </div>
-        <button onclick="loadDoc()">New Character</button>
-        <div id='info-box'>
-            <span>Full Name: </span><span class='info' id='character-name'></span> <br />
-            <span>Birth Year: </span><span class='info' id='birth-year'></span> <br />
-            <span>Gender: </span><span class='info' id='gender'></span> <br />
-            <span>Hair Color: </span><span class='info' id='hair-color'></span> <br />
-            <span>Height: </span><span class='info' id='height'></span> <br />
-            <span>Mass: </span><span class='info' id='mass'></span> <br />
+        <button>Get Random Pokemon</button>
+    </div>
+    <!-- Overlay for new site users -->
+    <div id="intro-overlay">
+        <img alt="Pokemon logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1024px-International_Pok%C3%A9mon_logo.svg.png" />
+        <h5>Welcome to My Pokemon API!</h5>
+        <p id="intro-overlay-p"></p>
+        <div id="intro-overlay-enterBtn">
+            <span onclick="animateOverlay()" id="intro-overlay-span">Enter</span>
+            <img id="intro-overlay-pokeball" alt="pokemon-ball" src="./pokemon-ball.png" />
         </div>
     </div>
     <footer>
         <p>D.Wright 2020</p>
     </footer>
-    <script src='index.js'></script>
+    <!-- JS file to handle poke data -->
+    <script src='index.js'></script> 
+
+    <!-- Animation JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <script>
+        function animateOverlay() {
+            let tl = gsap.timeline()
+
+            // add the tweens to the timeline - Note we're using tl.to not gsap.to
+            tl.to("#intro-overlay-span", { opacity:0 });
+            tl.to("#intro-overlay-pokeball", { x: -30 });
+            tl.to("#intro-overlay-pokeball", { rotation: 360, duration: 2.5 });
+            tl.to("#intro-overlay", { y:-1000 });
+        }
+    </script>
+
+    <!-- Typewriter js functionality -->
+    <script>
+        let introP = document.querySelector('#intro-overlay-p');
+        const typewriter = new Typewriter(introP, {
+            loop: false
+        });
+        typewriter.changeDelay('40')
+        .typeString(`Pokemon (an abbreviation for Pocket Monsters in Japan) is a Japanese media franchise 
+        managed by The Pokémon Company, a company founded by Nintendo, Game Freak, and Creatures. The franchise 
+        was created by Satoshi Tajiri in 1996, and is centered around fictional creatures called "Pokémon." In
+        Pokémon, Pokémon Trainers are people who catch, train, care for, and battle with Pokémon. The English
+        slogan for the franchise is "Gotta Catch ‘Em All!". There are currently 905 Pokémon species.`)
+        .start();
+    </script>
 </body>
 </html>

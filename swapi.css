@@ -1,116 +1,139 @@
-@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
-        body {
-            margin: 0;
-            font-family: 'Atma', cursive;
-            background-color: darkslategrey;
-        }
-        #header {
-            text-align: center;
-            background-color: black;
-            color:dodgerblue;
-            padding:10px 0;
-        }
-        #header > h2 {
-            margin: 0 0 20px 0;
-            font-family: 'Chewy', cursive;
-            text-shadow: -5px 5px 3px steelblue;
-            text-decoration: underline;
-            transition: all 2s;
-        }
-        #header > h2:hover{
-            transform: scale(2);
-        }
-        #header > button {
-            border-radius:10px;
-            padding: 5px;
-            background: dimgray;
-            color: orange;
-        }
-        #main {
-            text-align: center;
-            margin-bottom: 15px;
-            min-height: 90vh;
-        }
-        #image, #info-box {
-            text-align: center;
-        }
-        ul {
-            display: flex;
-            list-style-type: none;
-            justify-content: space-around;
-        }
-        ul li {
-            cursor:pointer;
-            font-size: 20px;
-        }
-        ul li:hover {
-            text-decoration: underline;
-        }
-        #image {
-            width:50%;
-            margin: auto;
-            min-height:70vh;
-            max-height:70vh;
-        }
-        #character-image {
-            width: 100%;
-            background-size: cover;
-            min-height:70vh;
-            max-height:70vh;
-            box-shadow: 0px 5px 10px 5px grey;
-        }
-        footer {
-            background-color: black;
-            padding: 10px;
-            text-align: center;
-            color: white;
-        }
-        button {
-            font-size: 15px;
-            margin:10px 0px 15px 0px;;
-            padding: 7px;
-            border: none;
-            border-radius: 18px;
-            background-color: mediumslateblue;
-            cursor: pointer;
-            transform: scale(1);
-            transition: all 1s;
-        }
-        /* @keyframes btn {
-            from
-        } */
-        button:hover {
-            cursor: pointer;
-            transform: scale(1.1);
-            transition: all 1s;
-        }
-        button:focus {
-            cursor: pointer;
-            transform: scale(1.1);
-            transition: all 1s;
-        }
-        #info-box {
-            background-color: mediumslateblue;
-            padding: 10px;
-            margin: 0 auto 15px auto;
-            border-radius: 10px;
-            width: 75%;
-        }
-        #info-box > h5 {
-            margin:5px 0;
-        }
-        .info {
-            text-decoration: underline;
-            font-weight: bold;
-        }
-        @media only screen and (max-width: 600px) {
-            #image {
-                width:100%
-            }
-            #info-box {
-                width:100%;
-                padding:0;
-                border-radius: 0;
-                background-color: transparent;
-            }
-          }
+@import url('https://fonts.cdnfonts.com/css/pokemon-solid');
+                
+body {
+    margin: 0;
+    background-color: darkslategrey;
+    font-family: 'Pokemon Solid', sans-serif;
+}
+#header {
+    text-align: center;
+    background-color: black;
+    color:yellow;
+    padding:10px 0;
+    /* font-family: 'Pokemon Solid', sans-serif; */
+    letter-spacing: 2px;
+}
+#header > h2 {
+    margin: 0 0 0 0;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: blue;
+    font-size: 2rem;
+    transition: all 1s;
+}
+#header > h2:hover{
+    transform: scale(1.1);
+}
+#header > button {
+    border-radius:10px;
+    padding: 5px;
+    background: dimgray;
+    color: orange;
+}
+footer {
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.3rem;
+    color: yellow;
+    font-family: 'Pokemon Solid', sans-serif;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: blue;
+    letter-spacing: 2px;
+}
+
+/* This div wraps the main content */
+#main-container {
+    /* margin-bottom: 15px; */
+    min-height: 85vh;
+    display: flex;
+    position: relative;
+    
+}
+#main-container > button {
+    position: absolute;
+    bottom: 10vh;
+    left: 15vw;
+    width: 70%;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/* Circular img container */
+#img-container {
+    background-color: blue;
+    border-radius: 50%;
+    bottom: 68px;
+    border: 5px solid white;
+    height: 150px;
+    position: relative;
+    width: 150px;
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+#img-container > img {
+    width: 70%;
+}
+#about-section {
+    width:80vw;
+    border-radius: 10px;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+    min-height: 40vh;
+    justify-content: center;
+}
+
+/* Overlay intro div */
+#intro-overlay {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100vw;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)), url("https://images7.alphacoders.com/592/592678.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color:blue;
+    letter-spacing: 1px;
+    padding-top:2vh;
+    text-align: center;
+
+    display: none;
+}
+#intro-overlay > img {
+    width:64vw;
+}
+#intro-overlay > h5 {
+    font-size: 1rem;
+}
+#intro-overlay > p {
+    margin: 0 0 5px 0;
+    height:43vh;
+}
+#intro-overlay-enterBtn {
+    border-radius: 50%;
+    display: flex;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+#intro-overlay-enterBtn > span {
+    font-size: 1.5rem;
+    letter-spacing: 1.2px;
+    text-decoration: underline;
+}
+#intro-overlay-enterBtn > img {
+    width:30%;
+}
+/* @keyframes btn {
+    from
+} */
+
+@media only screen and (max-width: 600px) {
+    
+    }
