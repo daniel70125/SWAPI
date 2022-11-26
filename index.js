@@ -1,48 +1,83 @@
 
-let pages = [] //Pages to search through results
-let pageCounter = 20; 
-// For loop to keep track of search results (20 each page);
-for (let i = 0; i < 57; i++) {
-    pages[i] = pageCounter;
-    pageCounter = pageCounter + 20;
+const fullName = document.querySelector('#main-container-full-name');
+const imgDiv = document.querySelector('#img');
+const loader = document.querySelector('#loader');
+const allCharactersMeter = document.querySelector('#allCharactersMeter');
+
+let randomNumberPage = Math.floor(Math.random() * 11); // Random number between 0 - 10 for pages;
+
+const firstTenCharactersUrl = `https://swapi.dev/api/people/`; // URL to fetch all SWAPI characters
+let allCharactersList = [];
+let localImageCharactersList = [];
+let loadingAllCharacters = true;
+
+async function fetchLocalJson() {
+  await fetch('./swapi.json')
+  .then((res) => res.json())
+  .then((data) => {
+    data.forEach((elm, index) => {
+      localImageCharactersList.push(elm)
+    })
+  })
+  .catch((err) => console.log(err))
+  
+}
+fetchLocalJson()
+// Add all characaters to array function
+addCharactersToArray = (arr) => {
+  arr.forEach((elm, index) => {
+    allCharactersList.push(elm)
+  })
+}
+checkMeter = (value) => {
+  allCharactersMeter.setAttribute("value", value);
+}
+async function loadDoc() {
+  await getAllCharacters();
+  await addAllCharacterImages();
+  console.log(allCharactersList);
 }
 
-let randomNumberPage = Math.floor(Math.random() * 57); // Random number between 0 - 56 for pages;
-let randomPokemon = Math.floor(Math.random() * 21);
-let pokemonObj = {};
-
-const POKEUrl = `https://pokeapi.co/api/v2/pokemon/?offset=${pages[randomNumberPage]}&limit=20`; // URL to fetch pokemon data - 20 poke search result
-let randomPage = `https://pokeapi.co/api/v2/pokemon/`
-
-function loadDoc() {
-    fetch(POKEUrl)
-      .then((response) => response.json())
-      .then((data) => {
-      let pokemon = data.results[randomPokemon].name;
-      fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-        .then((res) => res.json())
+addAllCharacterImages = () => {
+  allCharactersList.forEach((elm, i) => {
+    localImageCharactersList.forEach((element, index) => {
+      if (elm.name === element.name){
+        elm.image = element.img;
+      }
+    })
+  })
+}
+setData = () => {
+  // fullName.innerText = 
+}
+// Loop over all pages and add to array; - MAIN FUNCTION
+async function getAllCharacters() {
+  let pageNum = 1;
+  for (let i = 1; i < 10; i++) {
+    checkMeter(`${i}0`);
+    if (pageNum === 1){
+      await fetch(`${firstTenCharactersUrl}`)
+        .then((response) => response.json())
         .then((data) => {
-          console.log(data)
-          pokemonObj = {
-            "name": data.name
-         }
-        })
-  });
+          addCharactersToArray(data.results)
+      });
+      pageNum = pageNum + 1;
+    } else {
+      await fetch(`${firstTenCharactersUrl}?page=${pageNum}`)
+        .then((response) => response.json())
+        .then((data) => {
+          addCharactersToArray(data.results)
+      });
+      pageNum = pageNum + 1;
+    }
+    allCharactersMeter.setAttribute("value", '100');
+  }
+  loadingAllCharacters = false;
+
+    let tl = gsap.timeline();
+    tl.to("#allCharactersMeter", { opacity:0 });
+    tl.to("#loader", {  scale: 1.3 });
+    tl.to("#loader", { scale: 0, opacity:0 });
 }
-
-window.setTimeout(() => {
-  document.querySelector('#main-container-full-name').innerText = `${pokemonObj.name}`
-}, 2000);
-
-// Counting by 20's the count is 57.7; => count:1154
-
-// document.onload = alert("Data might be inaccurate and lacking in various aspects due to the fact that it is not taken directly from Nintendo's Pokemon ROMs.");
 document.onload = loadDoc();
-
-/* Pokemon Name = data.results.forms.name
-   Pokemon Height =  data.results.height
-   Pokemon Weight =  data.results.weight
-   Pokemon Moves [array] = data.results.moves
-   Pokemon Icons [array] = data.results.sprites
-   Pokemon Types [array] = data.results.types
-*/
+window.setTimeout(setData, 2000);

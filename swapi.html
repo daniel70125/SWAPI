@@ -14,13 +14,22 @@
     </div>
     <div id='main-container'>
         <div id="about-section">
-            <!-- Img container -->
+            <!-- Utitlity div - Loader -->
+            <div>
+                <div id='loader' class="loader">
+                    <div class="inner one"></div>
+                    <div class="inner two"></div>
+                    <div class="inner three"></div>
+                </div>
+                <meter id="allCharactersMeter" name="allCharacters" min="0" low="40" high="80" max="100" value="95"></meter>
+            </div>
+                <!-- Img container -->
             <div id="img-container">
-                <img src="./avatar-img.png" alt="Image of character" />
+                <img id="img" src="" alt="Image of character" />
             </div>
             <!-- About informtion -->
-            <div>
-                <p id="main-container-full-name">First Last</p>
+            <div style="position: relative; bottom:60px;">
+                <p id="main-container-full-name"></p>
             </div>
         </div>
         <button>Get Random Pokemon</button>
@@ -38,9 +47,10 @@
     <footer>
         <p>D.Wright 2020</p>
     </footer>
+
+
     <!-- JS file to handle poke data -->
     <script src='index.js'></script> 
-
     <!-- Animation JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script>
@@ -54,7 +64,6 @@
             tl.to("#intro-overlay", { y:-1000 });
         }
     </script>
-
     <!-- Typewriter js functionality -->
     <script>
         let introP = document.querySelector('#intro-overlay-p');
