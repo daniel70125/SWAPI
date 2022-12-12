@@ -3,36 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POKE API</title>
+    <title>SWAPI API</title>
     <link rel="stylesheet" href="swapi.css" />
     <!-- Typewriter JS -->
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 </head>
 <body>
     <div id="header">
-        <h2>POKEMON API !</h2>
+        <h2>SWAPI API !</h2>
     </div>
-    <div id='main-container'>
-        <div id="about-section">
-            <!-- Utitlity div - Loader -->
-            <div>
-                <div id='loader' class="loader">
-                    <div class="inner one"></div>
-                    <div class="inner two"></div>
-                    <div class="inner three"></div>
+    <!-- Starship div - position absolute - transitioned-->
+    <!-- <div id="starship-container">
+        <img src="./images/starship.png" id='starship1-animation'/>
+    </div> -->
+    <div style="text-align: center;">
+        <div id='main-container'>
+            <div id="about-section">
+                <!-- Utitlity div - Loader -->
+                <div>
+                    <div id='loader' class="loader">
+                        <div class="inner one"></div>
+                        <div class="inner two"></div>
+                        <div class="inner three"></div>
+                    </div>
+                    <meter id="allCharactersMeter" name="allCharacters" min="0" low="40" high="80" max="100" value="95"></meter>
                 </div>
-                <meter id="allCharactersMeter" name="allCharacters" min="0" low="40" high="80" max="100" value="95"></meter>
-            </div>
+    
                 <!-- Img container -->
-            <div id="img-container">
-                <img id="img" src="" alt="Image of character" />
+                <div id="img-container">
+                    <img id="img" src="./images/characters/bib-fortuna.jpg" alt="Image of character" />
+                </div>
+                <!-- About informtion -->
+                <div id="aboutDetailsCont">
+                    <div style="background:darkgray">
+                        <p id="main-container-full-name"></p>
+                        <p id='main-container-birth-year'></p>
+                        <p id='main-container-gender'></p>
+                        <div>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- About informtion -->
-            <div style="position: relative; bottom:60px;">
-                <p id="main-container-full-name"></p>
-            </div>
+            <button class="button-27" role="button">Get Random character</button>
         </div>
-        <button>Get Random Pokemon</button>
     </div>
     <!-- Overlay for new site users -->
     <div id="intro-overlay">
@@ -41,7 +55,6 @@
         <p id="intro-overlay-p"></p>
         <div id="intro-overlay-enterBtn">
             <span onclick="animateOverlay()" id="intro-overlay-span">Enter</span>
-            <img id="intro-overlay-pokeball" alt="pokemon-ball" src="./pokemon-ball.png" />
         </div>
     </div>
     <footer>
@@ -49,9 +62,9 @@
     </footer>
 
 
-    <!-- JS file to handle poke data -->
+    <!-- Main JS file to handle star wars data -->
     <script src='index.js'></script> 
-    <!-- Animation JS -->
+    <!-- Animation JS - GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
     <script>
         function animateOverlay() {
@@ -59,8 +72,6 @@
 
             // add the tweens to the timeline - Note we're using tl.to not gsap.to
             tl.to("#intro-overlay-span", { opacity:0 });
-            tl.to("#intro-overlay-pokeball", { x: -30 });
-            tl.to("#intro-overlay-pokeball", { rotation: 360, duration: 2.5 });
             tl.to("#intro-overlay", { y:-1000 });
         }
     </script>
