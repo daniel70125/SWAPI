@@ -59,6 +59,8 @@ setData = () => {
   fullName.innerText = `Name: ${character.name}`;
   birthYear.innerText = `Birth Year: ${character.birth_year}`;
   gender.innerText = `Gender: ${character.gender}`;
+  // imgDiv.src = character.image;
+
   
 }
 // Loop over all pages and add to array; - MAIN FUNCTION
