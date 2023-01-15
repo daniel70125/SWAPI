@@ -12,11 +12,7 @@
     <div id="header">
         <h2>SWAPI API !</h2>
     </div>
-    <!-- Starship div - position absolute - transitioned-->
-    <!-- <div id="starship-container">
-        <img src="./images/starship.png" id='starship1-animation'/>
-    </div> -->
-    <div style="text-align: center;">
+    <div id="main-container-wrapper">
         <div id='main-container'>
             <div id="about-section">
                 <!-- Utitlity div - Loader -->
@@ -32,21 +28,26 @@
                 <!-- Img container -->
                 <div id="img-container">
                     <!-- Change background color to match body bg!!!! -->
-                    <img id="img" src="./images/characters/zam-wesell.jpg" alt="Image of character" />
+                    <img id="img" src="" alt="Image of character" />
                 </div>
                 <!-- About informtion -->
                 <div id="aboutDetailsCont">
-                    <div style="background:darkgray">
+                    <div id="aboutDetailsCont-mainInfo">
+                        <div>
+                            <p>"Let's go"</p>
+                            <p>-Yoda</p>
+                        </div>
                         <p id="main-container-full-name"></p>
                         <p id='main-container-birth-year'></p>
                         <p id='main-container-gender'></p>
-                        <div>
-                            
-                        </div>
+                        <p id='main-container-eye-color'></p>
+                        <p id='main-container-height'></p>
+                        <h5>Movies starred in:</h5>
                     </div>
+                    <div id="movie-container"></div>
                 </div>
             </div>
-            <button class="button-27" role="button">Get Random character</button>
+            <button class="button-27" onclick="setData()" role="button">Get Random character</button>
         </div>
     </div>
     <!-- Overlay for new site users -->
