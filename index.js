@@ -17,10 +17,10 @@ const imgContainer = document.querySelector('#img-container');
 const firstTenCharactersUrl = `https://swapi.dev/api/people/`; // URL to fetch all SWAPI characters
 let allCharactersList = [];
 let localImageCharactersList = [];
-let loadingAllCharacters = true;
+
 // Change background colors depending on status of light side vs dark
-const lightSidePallette = ['#3780d3', '#5bdd59']
-const darkSidePallette = [ '#d62f00', '#950216']
+const lightSidePallette = ['#3780d3', '#5bdd59'];
+const darkSidePallette = [ '#d62f00', '#950216'];
 
 async function fetchLocalJson() {
   await fetch('./JSON/characters.json')
@@ -128,7 +128,6 @@ async function getAllCharacters() {
     }
     allCharactersMeter.setAttribute("value", '100');
   }
-  loadingAllCharacters = false;
 
     let tl = gsap.timeline();
     tl.to("#allCharactersMeter", { opacity:0 });

@@ -3,7 +3,7 @@ body {
     background-color: darkslategrey;
     letter-spacing: 1px;
     position: relative;
-    min-height: 100vh;
+    min-height: 70vh;
 }
 #header {
     text-align: center;
@@ -42,6 +42,18 @@ footer {
     width: 100%;
     margin-top:8vh;
 }
+/* Hide scrollbar CSS */
+/* Hide scrollbar for Chrome, Safari and Opera */
+#movie-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#movie-container {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+/* End of hiding scrollbar CSS */
 
 /* This div wraps the main content */
 #starship-container {
@@ -89,7 +101,6 @@ footer {
     text-align: center;
     margin: auto;
     background-color: white;
-    height: 95vh;
     justify-content: center;
     position: relative;
     top:5vh;
@@ -108,14 +119,14 @@ footer {
 #movie-container {
   display: flex;
   overflow-x: scroll;
-  justify-content: center;
-  padding: 1vh 0;
-  background: grey;
-  background: linear-gradient(360deg, #ffffff, transparent);
+  padding: 1vh 1vw;
 }
 #movie-container img {
   width:40vw;
   margin-right:3vw;
+}
+#aboutDetailsCont h5 {
+  font-size: 1.2rem;
 }
 
 /* Overlay intro div */
@@ -304,10 +315,13 @@ footer {
   }
 }
   /*End of Loader CSS  */
+
 @media only screen and (min-width: 768px) {
-    
+  body {
+    min-height:125vh;
+  }
   #allCharactersMeter {
-    left: calc(50% - 190px);
+    left: calc(50% - 160px);
     bottom: calc(35%);
   }
   footer {
@@ -320,7 +334,7 @@ footer {
   .loader {
     width: 125px;
     height: 125px;
-    top: calc(50% - 100px);
+    top: calc(50% - 120px);
     left: calc(50% - 70px);
   }
   #img-container {
@@ -331,14 +345,9 @@ footer {
   }
   #aboutDetailsCont {
     justify-content: space-around;
-    bottom: 80px;
-  }
-  #about-section {
-    height: 58vh;
+    bottom: 100px;
   }
   .button-27 {
-    position: relative;
-    top:32vh;
     font-size: 24px;
   }
   #movie-container img {
@@ -346,10 +355,13 @@ footer {
   }
   #main-container {
     min-height:auto;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   #main-container-wrapper {
-    height: 105vh;
+    height: 115vh;
+  }
+  #aboutDetailsCont h5 {
+    font-size: 1.5rem;
   }
     
 }
@@ -383,12 +395,7 @@ footer {
     justify-content: space-around;
     bottom: 80px;
   }
-  #about-section {
-    height: 58vh;
-  }
   .button-27 {
-    position: relative;
-    top:26vh;
     font-size: 24px;
   }
   #movie-container img {
@@ -401,43 +408,40 @@ footer {
   #main-container-wrapper {
     height:100vh;
   }
-    
-}
-/* @media only screen and (min-width: 900px) {
-  #img-container {
-    height: 185px;
-    width: 185px;
-    bottom: 75px;
+  #aboutDetailsCont h5 {
+    font-size: 1.7rem;
   }
+}
+/* Laptops */
+@media only screen and (min-width: 900px) {
   #about-section {
-    height: auto;
+    top:15vh;
+    width:60%;
+  }
+  #main-container {
+    font-size: 1rem;
   }
   #allCharactersMeter {
-    left: calc(50% - 270px);
+    left: calc(50% - 220px);
     bottom: calc(30%);
   }
-  #aboutDetailsCont {
-    bottom: 0;
-    display: flex;
+  #aboutDetailsCont h5 {
+    font-size: 1rem;
+  }
+  #movie-container img {
+    width:15vw;
+  }
+  body {
+    min-height: 210vh;
+  }
+  .button-27 {
+    top:20vh;
   }
   #allCharactersMeter {
-    left: calc(50% - 225px);
+    left: calc(50% - 210px);
     bottom: calc(20%);
   }
   .loader {
-    top: calc(50% - 60px);
+    top: calc(50% - 50px);
   }
-  .button-27 {
-    top: 8vh;
-  }
-  #aboutDetailsCont-mainInfo {
-    width:50%;
-  }
-  body {
-    min-height: 155vh;
-  }
-  #movie-container {
-    width:50%;
-    justify-content: flex-start;
-  }
-} */
+}
